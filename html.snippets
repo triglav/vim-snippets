@@ -1,0 +1,127 @@
+# Some useful Unicode entities
+# Non-Breaking Space
+snippet nbs
+	&nbsp;
+# Generic Doctype
+snippet doc
+	<!doctype html>
+snippet html
+	<html lang="${1:en}">
+	${2}
+	</html>
+snippet htmljs
+	<!--[if lt IE 7 ]> <html class="no-js ie6" lang="$1"> <![endif]-->
+	<!--[if IE 7 ]>    <html class="no-js ie7" lang="$1"> <![endif]-->
+	<!--[if IE 8 ]>    <html class="no-js ie8" lang="$1"> <![endif]-->
+	<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="${1:en}"> <!--<![endif]-->
+	${2}
+	</html>
+snippet xhtml
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	${1}
+	</html>
+snippet body
+	<body>
+		${1}
+	</body>
+snippet google
+	<script>
+		var _gaq=[['_setAccount','${1:UA-XXXXX-X}'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>${2}
+snippet head
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="${2:$1 description}">
+		<meta name="author" content="${3}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+		<link rel="stylesheet" href="css/style.min.css">
+		<script src="js/libs/modernizr-1.7.min.js"></script>
+	</head>
+	${4}
+snippet title
+	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
+snippet script
+	<script src="${1}"></script>${2}
+snippet style
+	<style>
+		${1}
+	</style>${1}
+snippet base
+	<base href="${1}" target="${2}"`Close()`>
+snippet r
+	<br`Close()[1:]`>
+snippet div
+	<div ${1:id}="${2:name}">
+		${3}
+	</div>
+snippet span
+	<span ${1:class}="${2:name}">${3}</span>${4}
+# Embed QT Movie
+snippet movie
+	<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+	 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+		<param name="src" value="$1"`Close()`>
+		<param name="controller" value="$4"`Close()`>
+		<param name="autoplay" value="$5"`Close()`>
+		<embed src="${1:movie.mov}"
+			width="${2:320}" height="${3:240}"
+			controller="${4:true}" autoplay="${5:true}"
+			scale="tofit" cache="true"
+			pluginspage="http://www.apple.com/quicktime/download/"
+		`Close()[1:]`>
+	</object>${6}
+snippet fieldset
+	<fieldset id="$1">
+		<legend>${1:name}</legend>
+		${2}
+	</fieldset>
+snippet form
+	<form action="${1:`Filename('$1_submit')`}" method="${2:get}" accept-charset="utf-8">
+		${3}
+	<p><input type="submit" value="Continue &rarr;"`Close()`></p>
+	</form>
+snippet h1
+	<h1>${1:Heading}</h1>${2}
+snippet h2
+	<h2>${1:Heading}</h2>${2}
+snippet h3
+	<h3>${1:Heading}</h3>${2}
+snippet h4
+	<h4>${1:Heading}</h4>${2}
+snippet h5
+	<h5>${1:Heading}</h5>${2}
+snippet input
+	<input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="${3}"`Close()`>${4}
+snippet label
+	<label for="${2:$1}">${1:name}</label>
+	<input type="${3:text/submit/hidden/button}" name="${4:$2}" value="${5}" id="${6:$2}"`Close()`>${7}
+snippet link
+	<link rel="${1:stylesheet}" href="${2:/css/master.css}">${3}
+snippet mailto
+	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+snippet meta
+	<meta name="${1:name}" content="${2:content}"`Close()`>${3}
+snippet opt
+	<option value="${1:option}">${2:$1}</option>${3}
+snippet optt
+	<option>${1:option}</option>${2}
+snippet select
+	<select name="${1:some_name}" id="${2:$1}">
+		<option value="${3:option}">${4:$3}</option>
+	</select>${5}
+snippet table
+	<table border="${1:0}">
+		<tr><th>${2:Header}</th></tr>
+		<tr><td>${3:Data}</td></tr>
+	</table>${4}
+snippet tr
+	<tr>${1}</tr>
+snippet td
+	<td>${1}</td>
+snippet textarea
+	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
+
