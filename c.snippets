@@ -28,7 +28,7 @@ snippet #if
 	#endif
 # Header Include-Guard
 snippet once
-	#ifndef ${1:`toupper(Filename('$1_H', 'UNTITLED_H'))`}
+	#ifndef ${1:`toupper(Filename('_$1_H_', '_UNTITLED_H_'))`}
 	#define $1
 
 	${2}
