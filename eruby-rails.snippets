@@ -1,0 +1,55 @@
+# Brackets
+snippet <
+	<% ${1} %>${2}
+snippet <%
+	<% ${1} %>${2}
+snippet =
+	<%= ${1} %>${2}
+snippet <=
+	<%= ${1} %>${2}
+snippet <%=
+	<%= ${1} %>${2}
+# ERB Tags
+snippet if
+	<% if ${1} %>
+		${2}
+	<% end %>
+snippet else
+	<% else %>${1}
+snippet end
+	<% end %>${1}
+# Rails View Helpers
+snippet ct
+	<%= content_tag ${1::tag}, ${2:content}${3} %>${4}
+snippet ct-
+	content_tag ${1::tag}, ${2:content}${3}
+snippet ctdo
+	<%= content_tag ${1::tag} do %>
+		${2}
+	<% end %>
+snippet lt
+	<%= link_to "${1:string}", ${2:path}${3} %>${4}
+snippet lt-
+	link_to "${1:string}", ${2:path}${3}
+snippet cf
+	<% content_for ${1::tag} do %>
+		${2}
+	<% end %>
+# Rails Layout Helpers
+snippet css
+	<%= stylesheet_link_tag ${1:"application"}${2} %>${3}
+snippet js
+	<%= javascript_include_tag ${1:"application"}${2} %>${3}
+snippet csrf
+	<%= csrf_meta_tags %>${1}
+snippet it
+	<%= image_tag ${1:"file"}${2} %>${3}
+# Simple Form Helpers
+snippet ff
+	<%= simple_form_for ${1:@model} do |f| %>
+		${2}
+	<% end %>
+snippet fi
+	<%= f.input :${1:field}${2} %>${3}
+snippet fb
+	<%= f.button :${1:submit}${2} %>${3}
