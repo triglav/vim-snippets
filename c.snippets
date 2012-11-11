@@ -56,12 +56,12 @@ snippet #if
 	#endif
 # Header Include-Guard
 snippet once
-	#ifndef ${1:`toupper(Filename('_$1_H_', '_UNTITLED_H_'))`}
-	#define $1
+	#ifndef TAJGA_${1:`toupper(Filename('$1', 'UNTITLED'))`}_H_
+	#define TAJGA_$1_H_
 
 	${2}
 
-	#endif /* $1 */
+	#endif /* TAJGA_$1_H_ */
 
 # If Condition
 snippet if
