@@ -13,12 +13,19 @@ snippet ns
 	namespace ${1:`Filename('', 'my')`} {
 	${2}
 	} // namespace $1
+
 # Class
 snippet cl
+
 	class ${1:`Filename('$1', 'name')`}
 	{
+	private:
+		$1($1 const &);
+		$1 & operator= ($1 const &);
+
 	public:
 		$1();
 		virtual ~$1();
 
 	}; // class $1
+
