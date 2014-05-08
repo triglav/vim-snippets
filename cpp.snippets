@@ -3,10 +3,13 @@ snippet Inc
 	#include <${1:iostream}>${2}
 # Header Include-Guard
 snippet once
-	#ifndef TAJGA_${1:`toupper(Filename('$1', 'UNTITLED'))`}_H_
+	#ifndef TAJGA_${1:`substitute(toupper(Filename('$1', 'UNTITLED')), '-', '_', 'g')`}_H_
 	#define TAJGA_$1_H_
 
-	${2}
+	namespace ${2:tajga} {
+	${3}
+	} // namespace $2
+
 	#endif // TAJGA_$1_H_
 
 # STL
@@ -17,28 +20,32 @@ snippet vector
 	std::vector<${1:T}> ${2:name};${3}
 snippet list
 	std::list<${1:T}> ${2:name};${3}
-snippet uniq
+# Pointers
+snippet up
 	std::unique_ptr<${1:T}> ${2:name};${3}
+snippet sp
+	std::shared_ptr<${1:T}> ${2:name};${3}
 snippet mu
 	std::make_unique<${1:T}>(${2})${3}
+snippet ms
+	std::make_shared<${1:T}>(${2})${3}
 # Namespace
 snippet ns
-	namespace ${1:`Filename('', 'my')`} {
+	namespace ${1:tajga} {
 	${2}
 	} // namespace $1
-
 # Class
 snippet cl
 
-	class ${1:`Filename('$1', 'name')`}
+	class ${1:`substitute(substitute(Filename('$1', 'UNTITLED'), '-', '_', 'g'), '\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)','\u\1\2','g')`}
 	{
 		$1($1 const &) = delete;
 		$1 & operator= ($1 const &) = delete;
 
 	public:
 		$1();
-		virtual ~$1();
-
+		~$1();
+	${2}
 	}; // class $1
 
 snippet en
